@@ -5,7 +5,7 @@ const fs=require('fs');
 var app=express();
 hbs.registerPartials(__dirname + '/views/partials');
 app.set('view engine','hbs');
-const port=process.env.PORT || 3000;
+const port=process.env.PORT || 4005;
 
 
 app.use((req,res,next)=>{
@@ -51,6 +51,12 @@ app.get('/about',(req,res)=>{
   });
 });
 
+app.get('/projects',(req,res)=>{
+  res.render('projects.hbs',{
+    portfolioMessage:'Portfolio',
+    hello:'Hello'
+  });
+});
 app.get('/bad',(req,res)=>{
   res.send({
     errorMessage:'unable to handle requests'
