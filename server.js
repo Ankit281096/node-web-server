@@ -5,6 +5,7 @@ const fs=require('fs');
 var app=express();
 hbs.registerPartials(__dirname + '/views/partials');
 app.set('view engine','hbs');
+const port=process.env.PORT || 3000;
 
 
 app.use((req,res,next)=>{
@@ -55,6 +56,6 @@ app.get('/bad',(req,res)=>{
     errorMessage:'unable to handle requests'
   });
 });
-app.listen(3000,()=>{
-  console.log('Server is set up on port 3000');
+app.listen(port,()=>{
+  console.log(`Server is on port ${port}`);
 });
